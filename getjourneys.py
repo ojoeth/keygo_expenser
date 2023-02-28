@@ -62,6 +62,15 @@ def formulateHTML(type, dst, src, price, date):
     """)
     return tickethtml
 
+def convertFare(ticket):
+    if ticket["fare"] == 0:
+        price = 0
+    else:
+        print(ticket["fare"]/100)
+        price = (ticket["fare"]/100) # Avoid dividing by zero!! 
+    return price
+
+
 htmlfilename = (datetime.datetime.now().isoformat() + ".html")
 f = open(htmlfilename, 'w')
 f.write("""<link href='https://fonts.googleapis.com/css?family=Rationale' rel='stylesheet'>
@@ -72,17 +81,16 @@ totalcost = 0
 for t in journey.data["dailyTransactions"]:
     for transaction in t["transactions"]:
         for ticket in transaction["journeyPattern"]["tickets"]:
-            if ticket["fare"] == 0:
-                price = 0
-            else:
-                price = (ticket["fare"]/100) # Avoid dividing by zero!! 
-            totalcost += price
             # Filter by station if specified in args
             if 'filter' in globals():
                 if ticket["destinationName"] == filter:
+                    price = convertFare(ticket)
+                    totalcost = totalcost + price
                     print(t["date"], (ticket["originName"] + " to " +  ticket["destinationName"]), ticket["description"].title(), ("£%.2f"%price))
                     f.write(formulateHTML(ticket["description"].title(), ticket["destinationName"], ticket["originName"], ("£%.2f"%price), t["date"]))
             else:
+                price = convertFare(ticket)
+                totalcost = totalcost + price
                 print(t["date"], (ticket["originName"] + " to " +  ticket["destinationName"]), ticket["description"].title(), ("£%.2f"%price))
                 f.write(formulateHTML(ticket["description"].title(), ticket["destinationName"], ticket["originName"], ("£%.2f"%price), t["date"]))
 
