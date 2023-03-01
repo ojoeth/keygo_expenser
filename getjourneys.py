@@ -62,12 +62,11 @@ def formulateHTML(type, dst, src, price, date):
     """)
     return tickethtml
 
-def convertFare(ticket):
-    if ticket["fare"] == 0:
+def convertFare(fare):
+    if fare == 0:
         price = 0
     else:
-        print(ticket["fare"]/100)
-        price = (ticket["fare"]/100) # Avoid dividing by zero!! 
+        price = (fare/100) # Avoid dividing by zero!! 
     return price
 
 
@@ -84,17 +83,17 @@ for t in journey.data["dailyTransactions"]:
             # Filter by station if specified in args
             if 'filter' in globals():
                 if ticket["destinationName"] == filter:
-                    price = convertFare(ticket)
+                    price = convertFare(ticket["fare"])
                     totalcost = totalcost + price
                     print(t["date"], (ticket["originName"] + " to " +  ticket["destinationName"]), ticket["description"].title(), ("£%.2f"%price))
                     f.write(formulateHTML(ticket["description"].title(), ticket["destinationName"], ticket["originName"], ("£%.2f"%price), t["date"]))
             else:
-                price = convertFare(ticket)
+                price = convertFare(ticket["fare"])
                 totalcost = totalcost + price
                 print(t["date"], (ticket["originName"] + " to " +  ticket["destinationName"]), ticket["description"].title(), ("£%.2f"%price))
                 f.write(formulateHTML(ticket["description"].title(), ticket["destinationName"], ticket["originName"], ("£%.2f"%price), t["date"]))
 
 f.write("</div>")
-f.write("Total: " + ("£%.2f"%totalcost))
+f.write("<br> Total: " + ("£%.2f"%totalcost))
 f.close()
 
