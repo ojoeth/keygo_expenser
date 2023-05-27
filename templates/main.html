@@ -1,0 +1,14 @@
+<link href='https://fonts.googleapis.com/css?family=Rationale' rel='stylesheet'>
+<link href='style.css' rel='stylesheet'>
+<div style="background-color:#fff; padding-left:10px; padding-top: 10px; height: 600px">
+   {% for journey in journeys %}
+   <div class="ticketOrange">
+        <div class="ticketCream">
+            <div class="standardTicket">
+                {{journey}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br> Total: 

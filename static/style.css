@@ -1,0 +1,39 @@
+.ticketOrange {
+    float: left;
+    float: left;
+    margin: .4rem;
+    width: 14.5rem;
+    height: 10rem;
+    background: #FC5D00;
+    position: relative;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: .1rem .1rem .2rem #000;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font: bold, Helvetica, sans-serif;
+}
+
+  .ticketCream {
+    width: 14.5rem;
+    height: 7rem;
+    background: #F8FCEB;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font: bold, Helvetica, sans-serif;
+    font-size: 40%;
+    position: absolute;
+    top: 1.5rem;
+    overflow: hidden;
+    justify-content: center;
+
+  }
+  
+  .standardTicket {
+    color: black;
+    z-index: 1.5;
+    font-size: 300%;
+    font-family: 'Rationale';
+    text-align: center;
+    width: 100%
+  }
