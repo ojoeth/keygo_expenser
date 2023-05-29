@@ -7,11 +7,21 @@ The idea is that you input a year, month, and optionally a destination station t
 
 ### CLI
 - Run `cli.py` with `year`, `month`. Optionally, provide a `station` to filter results for journeys to a specific station.
+
 `python3 cli.py 2023 05 Lewes`
 
 ### Web
-- Docker image to come soon
+
+#### Docker
+- `git clone https://github.com/ojoeth/keygo_expenser`
+- `docker build -t keygo .`
+- `docker run --name=keygo -p 8000:8000 -dt keygo`
+- Navigate to http://localhost:8000 in your browser
+- Optionally, configure a reverse proxy to handle HTTPS
+
+#### Manually
 - Ensure Flask is installed
 - Run flask on webapp.py
+
 `flask --app webapp.py run`
 - Navigate to http://localhost:5000 in your browser
