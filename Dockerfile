@@ -1,7 +1,5 @@
 FROM docker.io/library/python
-ADD *.py requirements.txt /app
-ADD static /app/static
-ADD templates /app/templates
+COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 8000
