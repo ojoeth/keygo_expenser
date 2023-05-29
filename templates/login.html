@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    
+    <body>
+        <form method="post" action="/journeys">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <label for="month">Month</label><br>
+        <input id="month" name="month" type="month" min="2023-03" max="{{current_month}}" value="{{current_month}}"><br>
+        <input type="submit" value="Submit"><br>
+
+        </form> 
+    </body>
+</html>
