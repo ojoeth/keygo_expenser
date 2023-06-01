@@ -1,18 +1,29 @@
 <html>
     <head>
-
+        <link href='/static/login.css' rel='stylesheet'>
     </head>
     
     <body>
-        <form method="post" action="/journeys">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <label for="month">Month</label><br>
-        <input id="month" name="month" type="month" min="2023-03" max="{{current_month}}" value="{{current_month}}"><br>
-        <input type="submit" value="Submit"><br>
-
-        </form> 
+        <div class="warning">
+            <h1><b>ONLY enter your login details if you completely trust the owner of this instance.</b></h1>
+            <h2>This is not the official Southern or KeyGo website.</h2>
+            <h2>If someone gains access to your KeyGo account, they can purchase train tickets, create fraudulent delay repay requests and cancel your Key card.</h2>
+            <span id="close" onclick="this.parentNode.remove(); return false;">Close this warning</span>
+        </div>
+        <div class="login">
+            <h3 id="login-header">Log in</h3>
+            <div class="form">
+                <form method="post" action="/journeys">
+                    <label for="username">Email Address</label><br>
+                    <input type="text" id="username" name="username"><br><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password"><br><br>
+                    <label for="month">Month</label><br>
+                    <input id="month" name="month" type="month" min="2023-03" max="{{current_month}}" value="{{current_month}}"><br>
+                    <br>
+                    <input type="submit" value="Submit"><br>
+                </form> 
+            </div>
+        </div>
     </body>
 </html>

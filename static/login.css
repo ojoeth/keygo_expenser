@@ -1,0 +1,48 @@
+body{
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.warning{
+    background-color: rgb(255, 216, 202);
+    border-radius: 2rem;
+    padding: 1em;
+    font-size:x-small;
+    text-align: center;
+}
+.login{
+    background-color: azure;
+    display: block;
+    align-items: center;
+}
+#login-header{
+    padding: .6em;
+    background-color: #003f2e;
+    color: white;
+    text-align: center;
+}
+.form{
+    display:flex;
+    justify-content:center;
+    align-items: center;    
+    width: 100%;
+}
+input{
+    width: 30rem;
+}
+input[type=text],input[type=password],input[type=month]{
+    box-shadow: none;
+    height: 2rem;
+}
+input[type=text]:focus,input[type=password]:focus,input[type=month]:focus{
+    background-color: rgba(0, 0, 0, 0.075);
+    border-color: #003f2e;
+}
+input[type=submit]{
+    padding: 1em;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.075);
+    box-shadow: none;
+    border-color: #003f2e;
+    border-radius: .1em;
+}
